@@ -1,0 +1,60 @@
+Bootcamp QA Automation
+DAY 1
+Planning: PM akan presentasi product yang akan di develope, qa  berperan sebagai requrement analysis untuk deteksi bug sebelum masuk proses development
+Smoke test: menguji aplikasi sebelum rilis untuk fitur yang utama/major
+sanity tes: menguji fitur untuk improvement ketika existing apps yang baru naik/telah ke production
+setelah nya bikin qa sign off (laporan testcase)
+regression test: test eksekusi dari test case
+rilis train: menguji fitur yang sudah didevelope tapi belum diaktifkan
+monolitic test: pengujian langsung di frontend apps
+entire test: pengujian pemisahan frontend dan backend (unit test -> backend test/service test/api test/integrasi test -> ui test user experience, and repeat)
+
+mindset qa automation test:
+sebelum automation test, harus berdiri dulu sebagai manual test, harus ada test case manual yang baik dulu, 
+automation adalah alat untuk mempermudah kita dengan strategi test case, automasi test case yang berulang-ulang, perlu keseuaian dengan habbit user dengan hasil yang sama setiap saat, 
+kenapa automation? regresi lebih cepat, test otomatis jalan setiap commit code (ci/cd ready), data driven/test case/input banyak bisa lebih fleksibel/efektif, test yang butuh kepresisian perhitungan, test yang butuh banyak browser/device.
+automation adalah invest jangka panjang.
+
+automation tools compare:
+selenium: release paling awal (2004), speed lebih lambat, multi browser, manual wait, pararel eksekusi setup, typescript per;u setup, recording tool ide/katalon
+
+cypress: release 2017, speed cepat, chrome family, built-in, prarel eksekusi built-in, type script built in, recording tool test runner
+
+playwright: release 2020, speed tercepat, all web, smart wait, pararel eksekusi default/mudah, type script first class, recording tool codegen (best)
+   
+Playwright setup and demo:1. Buat folder D:\bootcamp_qa, 2. install nodejs di folder ini, 3.install playwright D:\bootcamp_qa>npm init playwright, 4. bikin script: npx playwright codegen --> untuk record web test --> auto buat script --> Copy script --> buat file namafile.spec.ts pada folder /tests --> paste di code editor
+jalankan test dengan command=npx playwright test tests/namafile.spec.ts --headed (--headed untuk menampilkan proses testing) --> untuk lihat hasil test=npx playwright show-report
+
+===============================================================================================================================================================================================================================================================================================================
+
+DAY 2
+
+Positif chase adalah test chase input valid
+Negatif chase dadalah test chase input tidak valid
+edge chase adalah test chase untuk di kondisi maksimum/minimum kemampuan software
+P0 adalah tingkat prioritas tertinggi yang diberikan sebuah bug/cacat
+
+Daily standup (update progress masing masing orang)
+codegen bekerja dengan melihat/merekam step-step berdasarkan text dan element pada web interface dan mendevelope script nya, kekurangannya code berantakan dan banyak data data yang diharcode seperti password
+assertions adalah untuk expect teks yang akan muncul setelah melakukan eksekusi contoh: "password salah" ketika testchase negatif dilakukan
+masalah 1: timeout kurang karena element yang akan diekesekusi belum muncul atau < timeout yang diatur
+solusi: timeout ditambah
+untuk mengetahui command playwright yaitu: npx playwright test -h
+selector adalah elemen pada halaman web (button, text, dll)
+ a. getByRole(): cari tombol bernama login
+ b. getByText(): cari tombol tapi hati hari dengan text dinamis misal beda bahasa
+contohnya dalam 1 file testchase/worker ada 5 test chase automate (resoucre yang dipakai kecil, kekurangannya harus menunggu 100 testchase itu satu-persatu), agar cepat maka buat banyak worker denga contoh per-worker 20 testchase (kekurangan butuh resource tinggi)
+contoh ada 4 worker dijalankan, testchase ke 5 nanti dieksekusi oleh worker yang pertama kali selesai
+*cara menggunakan Worker ada di pertemuan ke 5-6
+Untuk login yang butuh OTP/authenticatior bisa di otomasi asalkan laptop kita bisa terkonek ke hp penerima otp menggunakan API, biasanya harus ada aplikasi tambahan di HP nya
+Refactoring: proses cleaning dari code/script berantakan jadi lebih teratur
+
+setup git lokal ke repository github
+cantumkan ssh.key dari lokal ke github kita untuk remote
+
+
+
+
+
+
+
