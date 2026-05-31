@@ -52,7 +52,74 @@ Refactoring: proses cleaning dari code/script berantakan jadi lebih teratur
 setup git lokal ke repository github
 cantumkan ssh.key dari lokal ke github kita untuk remote
 
+========Setup Koneksi Git Lokal ke Repository GitHub (SSH)========
+*Pastikan Path instalasi git sudah diseting (C:\Program Files\Git\cmd)
 
+1. Inisialisasi repository Git lokal
+git init
+
+Membuat folder `.git` agar project menjadi repository Git.
+
+2. Hubungkan repository lokal ke repository GitHub
+git remote add origin <URL_REPOSITORY_GITHUB>
+Contoh:
+git remote add origin git@github.com:mghalibkawakibi-test/Bootcamp_QA.git
+
+3. Verifikasi remote repository
+git remote -v
+
+Menampilkan URL repository GitHub yang terhubung.
+
+4. Cek status file project
+git status
+
+Melihat file yang berubah, ditambahkan, atau belum di-commit.
+
+5. Tambahkan semua file ke staging area
+git add .
+
+Menandai file yang akan dimasukkan ke commit.
+
+6. Simpan perubahan ke local repository
+git commit -m "init"
+
+Membuat snapshot/perubahan pada repository lokal.
+
+7. Push ke GitHub
+git push origin master
+
+Mengirim commit dari lokal ke repository GitHub.
+
+==================Setup SSH Key GitHub (dilakukan sekali saja)===============
+
+8. Generate SSH Key
+ssh-keygen -t ed25519 -C "mghalibkawakibi@gmail.com"
+
+Membuat private key dan public key pada folder `.ssh`.
+
+9. Cek file SSH Key
+gunakan powershell:
+Get-ChildItem ~/.ssh
+
+Memastikan file `id_ed25519` dan `id_ed25519.pub` sudah dibuat.
+
+10. Tampilkan Public Key
+gunakan powershell:
+cat ~/.ssh/id_ed25519.pub
+
+Salin isi public key untuk ditambahkan ke GitHub.
+
+11. Tambahkan Public Key ke GitHub
+
+GitHub → Settings → SSH and GPG Keys → New SSH Key
+
+Paste isi `id_ed25519.pub`.
+
+12. Uji koneksi SSH ke GitHub
+ssh -T git@github.com
+
+Jika berhasil:
+Hi <username>! You've successfully authenticated...
 
 
 
