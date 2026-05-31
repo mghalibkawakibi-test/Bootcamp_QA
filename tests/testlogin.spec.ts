@@ -18,8 +18,7 @@ test('test', async ({ page }) => {
   await page.getByRole('textbox', { name: 'Password' }).click();
   await page.getByRole('textbox', { name: 'Password' }).fill('tester!3');
   await page.getByRole('button', { name: 'Sign In' }).click();
-  import { test, expect } from '@playwright/test';
-  await expect(page.getBy('heading', { name: 'Emra', exact: true })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Emra', exact: true })).toBeVisible();
 });
 
 test('Unsuccessfully login use invalid credential @p1 @login @negative @smoketest', async ({ page }) => {
